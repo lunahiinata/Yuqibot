@@ -1,1 +1,1 @@
-worker: node bot.js yuqi
+worker: node bot.js
