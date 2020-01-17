@@ -1,19 +1,29 @@
-/*
- * Discord Bot Builder Bot
- * Version 1.2.0
- * Robert Borghese
- */
+const Discord = require('discord.js');
 
-const Files = require(require('path').join(__dirname, 'js', 'Main.js')).Files;
+const client = new Discord.Client();
 
-if(!process.send) {
+ 
 
-Files.initStandalone();
+client.on('ready', () => {
 
-} else {
+    console.log('I am ready!');
 
-process.on('message', function(content) {
-	Files.initBotTest(content);
 });
 
-}
+ 
+
+client.on('message', message => {
+
+    if (message.content === 'ping') {
+
+       message.reply('pong');
+
+       }
+
+});
+
+ 
+
+// THIS  MUST  BE  THIS  WAY
+
+client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
